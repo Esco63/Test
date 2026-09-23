@@ -3,40 +3,160 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mera2 Community Survey</title>
+<meta name="theme-color" content="#070707">
+<title>Mera2 Community Council</title>
+<meta name="description" content="Mera2 Community Council — hilf uns, das Oldschool MMORPG zu formen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#08090b;--panel:#111316;--line:#2c2c2b;--text:#e8e1d6;--muted:#999187;--gold:#c28d49;--gold2:#e2bd7a;--serif:Georgia,"Times New Roman",serif;--sans:Inter,Arial,sans-serif}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% -10%,#1e1d19,#090a0b 48%);color:var(--text);font-family:var(--sans)}a{color:inherit;text-decoration:none}.noise{position:fixed;inset:0;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.top{height:78px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #242424;background:#090a0be8;backdrop-filter:blur(12px)}.brand{display:flex;align-items:center;gap:10px;font:700 19px var(--serif);letter-spacing:.18em}.brand i{width:38px;height:38px;display:grid;place-items:center;border:1px solid #79572f;transform:rotate(45deg);font-style:normal;color:var(--gold2)}.brand span{color:var(--gold2)}.back{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#999188}.shell{max-width:1040px;margin:auto;padding:95px 20px 80px}.intro{text-align:center;max-width:760px;margin:0 auto 44px}.kicker{font-size:10px;letter-spacing:.24em;color:#a57944}.intro h1{font:500 clamp(38px,7vw,72px)/1.05 var(--serif);margin:12px 0 18px}.intro h1 span{color:#c49250}.intro p{color:var(--muted);line-height:1.75}.progress{height:2px;background:#2b271f;margin:34px auto 12px;max-width:560px}.progress i{display:block;height:100%;width:12.5%;background:linear-gradient(90deg,#92592d,#e1b365);transition:.3s}.progress-text{font-size:10px;letter-spacing:.13em;color:#77716a;text-transform:uppercase}
-.form{border:1px solid var(--line);background:linear-gradient(145deg,#151719,#0d0f10);padding:46px 52px}.step{display:none;min-height:390px}.step.active{display:block;animation:in .3s ease}.qno{font:700 30px var(--serif);color:#5d4932}.step h2{font:500 clamp(25px,4vw,40px)/1.2 var(--serif);margin:8px 0 28px}.help{color:#7f7970;margin-top:-16px;margin-bottom:24px;font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid.two{grid-template-columns:repeat(2,1fr)}label.choice{position:relative;cursor:pointer}.choice input{position:absolute;opacity:0}.choice span{display:block;min-height:122px;padding:22px;border:1px solid var(--line);background:#101213;transition:.2s}.choice b{display:block;font:500 18px var(--serif);color:#ded1bd;margin-bottom:8px}.choice small{color:#817b73;line-height:1.5}.choice input:checked+span,.choice:hover span{border-color:#b27d42;background:linear-gradient(145deg,#1d1914,#111314);box-shadow:inset 0 0 30px #9d642433}.list{display:grid;gap:10px}.list .choice span{min-height:0;padding:18px 20px 18px 48px;position:relative}.list .choice span:before{content:"";position:absolute;left:18px;top:50%;width:13px;height:13px;border:1px solid #765d3e;transform:translateY(-50%) rotate(45deg)}.list .choice input:checked+span:before{background:#d6a65e;box-shadow:0 0 15px #c0854155}.range{padding:58px 4px}.range input{width:100%;accent-color:#be8646}.range-row{display:flex;justify-content:space-between;margin-top:18px;font-size:11px;color:#7c766d}.range-row strong{font:500 15px var(--serif);color:var(--gold2)}textarea,input[type=text]{width:100%;background:#0c0e0f;border:1px solid var(--line);color:#ddd;padding:15px 16px;outline:none;font:14px var(--sans)}textarea:focus,input[type=text]:focus{border-color:#9e7240}.nick{display:block;margin-top:22px}.nick em{display:block;font-style:normal;font-size:10px;letter-spacing:.12em;color:#847d74;margin-bottom:8px;text-transform:uppercase}.nav{border-top:1px solid var(--line);padding-top:24px;margin-top:24px;display:flex;gap:12px;justify-content:space-between}.btn{min-height:46px;padding:0 20px;border:1px solid #5c4933;background:#0c0e0f;color:#d7d0c5;text-transform:uppercase;letter-spacing:.11em;font-size:11px;cursor:pointer}.btn.primary{margin-left:auto;background:linear-gradient(135deg,#9b632f,#d6a25a);border-color:#d6a25a;color:#0a0a0a;font-weight:800}.btn:disabled{opacity:.35}.hidden{display:none!important}.thanks{text-align:center;padding:80px 30px;border:1px solid var(--line);background:#111315}.mark{width:72px;height:72px;margin:0 auto 24px;border:1px solid #a97740;display:grid;place-items:center;transform:rotate(45deg);font-size:28px;color:#e1b66f}.mark span{transform:rotate(-45deg)}.thanks h2{font:500 40px var(--serif);margin:14px 0}.thanks p{max-width:620px;margin:0 auto 28px;color:var(--muted);line-height:1.7}@keyframes in{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
-@media(max-width:820px){.grid,.grid.two{grid-template-columns:1fr}.form{padding:34px 22px}.step{min-height:430px}}
-@media(max-width:520px){.top{height:68px;padding:0 17px}.shell{padding:72px 13px 50px}.brand{font-size:16px}.brand i{width:34px;height:34px}.back{font-size:9px}.form{padding:28px 16px}.nav .btn{padding:0 13px}}
+:root{--bg:#060606;--panel:#0e0e0e;--panel2:#15120e;--text:#eee8dc;--muted:#948d82;--gold:#b98542;--gold2:#e5bd7d;--line:rgba(217,176,103,.22);--line2:rgba(255,255,255,.08);--serif:"Cinzel",serif;--sans:"Inter",sans-serif;--hero:url("https://images.unsplash.com/photo-1717183421525-e915bbd4c8bd?auto=format&fit=crop&fm=jpg&q=86&w=2200");--warrior:url("https://images.unsplash.com/photo-1754474419533-7e2eb0e6fa60?auto=format&fit=crop&fm=jpg&q=80&w=1600")}
+*{box-sizing:border-box}html{background:#060606}body{margin:0;background:#060606;color:var(--text);font-family:var(--sans);min-height:100vh}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit;color:inherit}.grain{position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.top{height:74px;position:fixed;z-index:60;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;background:rgba(5,5,5,.88);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(10px)}.brand{font:700 21px var(--serif);letter-spacing:.2em}.brand span{color:var(--gold2)}.back{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8d867d}.back:hover{color:#e2bd7d}
+.hero{height:360px;position:relative;overflow:hidden;background:var(--hero) center 42%/cover;margin-top:74px}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050505 0%,rgba(0,0,0,.56) 45%,#050505 100%),linear-gradient(180deg,rgba(0,0,0,.1),#060606 98%)}.hero-content{position:relative;z-index:2;max-width:1100px;margin:auto;padding:83px 24px 0;text-align:center}.kicker{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:#c79b61}.hero h1{font:600 clamp(42px,7vw,76px)/1.05 var(--serif);text-transform:uppercase;margin:12px 0 14px}.hero h1 em{font-style:normal;color:var(--gold2)}.hero p{max-width:720px;margin:auto;color:#aaa298;line-height:1.75;font-size:13px}.seal{width:58px;height:58px;border:1px solid rgba(229,189,125,.45);display:grid;place-items:center;transform:rotate(45deg);margin:0 auto 25px}.seal span{transform:rotate(-45deg);font:600 18px var(--serif);color:#e5bd7d}
+
+.shell{max-width:1160px;margin:-42px auto 0;padding:0 22px 90px;position:relative;z-index:10;display:grid;grid-template-columns:250px 1fr;gap:20px}
+.side{border:1px solid var(--line2);background:linear-gradient(180deg,#0f0f0f,#090909);padding:28px 22px;height:max-content;position:sticky;top:98px}.side .label{font-size:8px;letter-spacing:.2em;color:#947249;text-transform:uppercase}.side h2{font:600 20px var(--serif);margin:8px 0 22px;text-transform:uppercase}.rail{display:grid;gap:16px}.rail-item{display:grid;grid-template-columns:26px 1fr;gap:10px;align-items:center;color:#5f5b55;font-size:9px;text-transform:uppercase;letter-spacing:.08em}.rail-item i{width:22px;height:22px;border:1px solid #39342d;display:grid;place-items:center;transform:rotate(45deg);font-style:normal}.rail-item i span{transform:rotate(-45deg);font-size:8px}.rail-item.active{color:#dfbb7b}.rail-item.active i{border-color:#a97940;background:#17110b;box-shadow:0 0 20px rgba(169,121,64,.12)}.rail-item.done{color:#8d816f}.rail-item.done i{border-color:#655338}.progress{height:2px;background:#1e1b18;margin:28px 0 8px}.progress b{display:block;height:100%;width:12.5%;background:linear-gradient(90deg,#7d4d26,#e0af67);transition:.3s}.progress-text{font-size:8px;letter-spacing:.12em;color:#65605a;text-transform:uppercase}
+
+.form-wrap{border:1px solid var(--line2);background:linear-gradient(135deg,#111,#0a0a0a);min-height:650px;position:relative;overflow:hidden}.form-wrap:after{content:"";position:absolute;right:-130px;top:-130px;width:330px;height:330px;border:1px solid rgba(216,175,108,.045);transform:rotate(45deg);pointer-events:none}.form-inner{padding:50px 54px 32px}.step{display:none;min-height:470px}.step.active{display:block;animation:slide .34s ease}.step-no{font:700 48px/1 var(--serif);color:#4c3b28}.step-kicker{font-size:8px;letter-spacing:.2em;color:#9a7346;text-transform:uppercase;margin-top:8px}.step h2{font:600 clamp(28px,4vw,44px)/1.15 var(--serif);text-transform:uppercase;margin:10px 0 12px}.help{color:#79736c;font-size:12px;line-height:1.6;margin:0 0 28px}
+.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.choice-grid.two{grid-template-columns:repeat(2,1fr)}label.choice{cursor:pointer;position:relative}.choice input{position:absolute;opacity:0}.choice .box{display:block;height:100%;min-height:132px;padding:22px 20px;border:1px solid #262626;background:linear-gradient(145deg,#111,#0c0c0c);position:relative;overflow:hidden;transition:.22s}.choice .box:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:transparent}.choice .box b{display:block;font:500 16px var(--serif);text-transform:uppercase;color:#d9d1c5;margin-bottom:9px}.choice .box small{display:block;color:#76716b;font-size:11px;line-height:1.6}.choice:hover .box,.choice input:checked+.box{border-color:#7f5d35;background:linear-gradient(145deg,#17130f,#0d0d0d);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.22)}.choice input:checked+.box:before{background:linear-gradient(#83572d,#e0ae65)}.choice input:checked+.box b{color:#e6bd79}
+.list{display:grid;gap:10px}.list .choice .box{min-height:0;padding:17px 18px 17px 48px}.list .choice .box:after{content:"";position:absolute;left:18px;top:50%;width:13px;height:13px;border:1px solid #5d4a34;transform:translateY(-50%) rotate(45deg)}.list .choice input:checked+.box:after{background:#c28a46;border-color:#e0ae66;box-shadow:0 0 15px rgba(207,148,74,.22)}
+
+.range-panel{padding:40px 0 18px}.range-panel input{width:100%;accent-color:#c58e49}.range-labels{display:flex;justify-content:space-between;align-items:end;margin-top:18px;color:#69645e;font-size:9px;text-transform:uppercase;letter-spacing:.08em}.range-labels strong{font:500 16px var(--serif);color:#e0b879;letter-spacing:.04em}
+textarea,input[type=text]{width:100%;background:#090909;border:1px solid #282828;padding:16px 17px;color:#ddd;outline:none;resize:vertical}.final-label{display:block;margin-top:18px}.final-label span{display:block;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:#786f63;margin-bottom:8px}textarea:focus,input[type=text]:focus{border-color:#815f38;box-shadow:0 0 0 2px rgba(129,95,56,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.06);padding:22px 54px 26px}.btn{height:47px;padding:0 21px;border:1px solid #51412e;background:#0b0b0b;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.2s}.btn:hover{border-color:#be8a4c;transform:translateY(-1px)}.btn.primary{margin-left:auto;color:#100d08;background:linear-gradient(135deg,#805020,#b97a39 52%,#dfaa61);border-color:#d9aa66;font-weight:800}.btn:disabled{opacity:.3;cursor:default;transform:none}.hidden{display:none!important}
+
+.thanks{grid-column:2;border:1px solid var(--line2);min-height:540px;background:linear-gradient(135deg,#111,#080808);display:grid;place-items:center;text-align:center;padding:40px}.thanks-inner{max-width:600px}.thanks .seal{width:82px;height:82px}.thanks .seal span{font-size:27px}.thanks h2{font:600 42px var(--serif);text-transform:uppercase;margin:16px 0}.thanks p{color:#8d877e;line-height:1.75;font-size:13px;margin-bottom:28px}
+.note{margin-top:22px;padding:15px 16px;border:1px solid rgba(255,255,255,.05);font-size:10px;color:#625e59;line-height:1.6}
+@keyframes slide{from{opacity:0;transform:translateX(13px)}to{opacity:1;transform:none}}
+@media(max-width:850px){.shell{grid-template-columns:1fr;margin-top:-24px}.side{position:relative;top:auto}.rail{grid-template-columns:repeat(4,1fr);gap:10px}.rail-item{grid-template-columns:1fr;text-align:center;justify-items:center}.rail-item span:last-child{display:none}.thanks{grid-column:1}.form-inner{padding:40px 26px}.nav{padding:20px 26px}.choice-grid,.choice-grid.two{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.top{height:66px;padding:0 18px}.brand{font-size:17px}.hero{margin-top:66px;height:330px}.hero-content{padding-top:60px}.shell{padding:0 12px 55px}.side{padding:22px 16px}.choice-grid,.choice-grid.two{grid-template-columns:1fr}.form-inner{padding:34px 18px 20px}.nav{padding:18px}.step{min-height:0;padding-bottom:25px}.btn{padding:0 14px}.hero h1{font-size:38px}}
 </style>
 </head>
 <body>
-<div class="noise"></div>
-<header class="top"><a class="brand" href="./index.html"><i>M</i>MERA<span>2</span></a><a class="back" href="./index.html">← Zur Startseite</a></header>
+<div class="grain"></div>
+<header class="top"><a class="brand" href="./index.html">MERA<span>2</span></a><a class="back" href="./index.html">← Zurück zur Welt</a></header>
+
+<section class="hero">
+  <div class="hero-content"><div class="seal"><span>M</span></div><div class="kicker">MERA2 // COMMUNITY COUNCIL</div><h1>Forme die <em>Welt</em> mit.</h1><p>Bevor Gameplaywerte festgeschrieben werden, wollen wir wissen, worauf ihr wirklich Bock habt. Keine Marketing-Umfrage — echte Designentscheidungen.</p></div>
+</section>
+
 <main class="shell">
-<section class="intro" id="intro"><div class="kicker">COMMUNITY COUNCIL</div><h1>Hilf uns, <span>Mera2</span> zu formen.</h1><p>Keine perfekte Antwort nötig. Sag einfach, worauf du wirklich Lust hättest. Die Umfrage wird aktuell nur lokal in deinem Browser gespeichert.</p><div class="progress"><i id="bar"></i></div><div class="progress-text" id="progressText">Frage 1 von 8</div></section>
-<form class="form" id="form">
-<section class="step active"><div class="qno">01</div><h2>Welche Grundrichtung spricht dich am meisten an?</h2><div class="grid"><label class="choice"><input required type="radio" name="era" value="2009"><span><b>2009 Classic</b><small>Sehr klassisch, kompakt und vertraut.</small></span></label><label class="choice"><input type="radio" name="era" value="2013"><span><b>2013 Classic</b><small>Mehr Endgame und spätere Inhalte.</small></span></label><label class="choice"><input type="radio" name="era" value="hybrid"><span><b>2009–2013 Hybrid</b><small>Classic Core plus ausgewähltes Endgame.</small></span></label></div></section>
-<section class="step"><div class="qno">02</div><h2>Wie soll der Biologe funktionieren?</h2><div class="list"><label class="choice"><input required type="radio" name="bio" value="original"><span><b>Original</b><small>Originale Wartezeit und klassischer Ablauf.</small></span></label><label class="choice"><input type="radio" name="bio" value="qol"><span><b>Original + QoL</b><small>Überall abgeben, Fortschritt sichtbar, Wartezeit bleibt.</small></span></label><label class="choice"><input type="radio" name="bio" value="modern"><span><b>Modernisiert</b><small>Weniger Wartezeit und komfortabler.</small></span></label></div></section>
-<section class="step"><div class="qno">03</div><h2>Welche Endgame-Inhalte interessieren dich?</h2><p class="help">Mehrfachauswahl möglich.</p><div class="grid two"><label class="choice"><input type="checkbox" name="endgame" value="grotte2"><span><b>Grotte II</b><small>Classic Late Game</small></span></label><label class="choice"><input type="checkbox" name="endgame" value="dragon"><span><b>Drachenraum</b><small>Beran-Setaou</small></span></label><label class="choice"><input type="checkbox" name="endgame" value="dc"><span><b>Devil's Catacomb</b><small>Dungeon-Endgame</small></span></label><label class="choice"><input type="checkbox" name="endgame" value="2013"><span><b>2013 Maps</b><small>Ausgewählte Highlevel-Gebiete</small></span></label></div></section>
-<section class="step"><div class="qno">04</div><h2>Was machen wir mit Alchemie?</h2><div class="list"><label class="choice"><input required type="radio" name="alchemy" value="none"><span><b>Gar nicht</b><small>Kein Drachensteinalchemie-System.</small></span></label><label class="choice"><input type="radio" name="alchemy" value="simple"><span><b>Stark vereinfacht</b><small>Weniger RNG und weniger permanente Stat-Schichten.</small></span></label><label class="choice"><input type="radio" name="alchemy" value="late"><span><b>Nur Late Game</b><small>Optional als spätes Endgame-System.</small></span></label></div></section>
-<section class="step"><div class="qno">05</div><h2>Wie schnell soll die Progression sein?</h2><div class="range"><input id="pace" name="pace" type="range" min="1" max="5" value="3"><div class="range-row"><span>Sehr langsam</span><strong id="paceLabel">Klassisch</strong><span>Deutlich schneller</span></div></div></section>
-<section class="step"><div class="qno">06</div><h2>Welche Systeme sind dir wichtig?</h2><div class="grid two"><label class="choice"><input type="checkbox" name="systems" value="offline"><span><b>Offline Shop</b></span></label><label class="choice"><input type="checkbox" name="systems" value="wiki"><span><b>Ingame Wiki</b></span></label><label class="choice"><input type="checkbox" name="systems" value="pickup"><span><b>Pickup Filter</b></span></label><label class="choice"><input type="checkbox" name="systems" value="events"><span><b>Eventkalender</b></span></label><label class="choice"><input type="checkbox" name="systems" value="pet"><span><b>Pet System</b></span></label><label class="choice"><input type="checkbox" name="systems" value="battlepass"><span><b>Battlepass</b></span></label></div></section>
-<section class="step"><div class="qno">07</div><h2>Was ist dir bei Equipment am wichtigsten?</h2><div class="list"><label class="choice"><input required type="radio" name="equipment" value="classic"><span><b>Klassische Items lange wertvoll</b><small>VMS, Rek und klassische Sets sollen lange Bedeutung behalten.</small></span></label><label class="choice"><input type="radio" name="equipment" value="more"><span><b>Mehr neue Tiers</b><small>Mehr Fortschritt durch zusätzliche Equipmentgenerationen.</small></span></label><label class="choice"><input type="radio" name="equipment" value="mix"><span><b>Ausgewogene Mischung</b><small>Alte Items bleiben wichtig, spätere Tiers ergänzen das Endgame.</small></span></label></div></section>
-<section class="step"><div class="qno">08</div><h2>Was muss Mera2 unbedingt richtig machen?</h2><textarea name="musthave" rows="6" placeholder="Deine Meinung, Wünsche, No-Gos …"></textarea><label class="nick"><em>Nickname (optional)</em><input type="text" name="nickname" maxlength="40" placeholder="Wie sollen wir dich nennen?"></label></section>
-<div class="nav"><button type="button" class="btn" id="prev">Zurück</button><button type="button" class="btn primary" id="next">Weiter</button><button type="submit" class="btn primary hidden" id="submit">Antwort speichern</button></div>
-</form>
-<section class="thanks hidden" id="thanks"><div class="mark"><span>✓</span></div><h2>Danke für deine Meinung.</h2><p>Deine Antwort wurde auf diesem Gerät lokal gespeichert. Sobald die Datenbank angebunden ist, können wir die Ergebnisse zentral auswerten.</p><a class="btn primary" href="./index.html">Zurück zu Mera2</a></section>
+  <aside class="side" id="side">
+    <div class="label">Survey Progress</div><h2>8 Entscheidungen</h2>
+    <div class="rail" id="rail">
+      <div class="rail-item active"><i><span>1</span></i><span>Grundrichtung</span></div>
+      <div class="rail-item"><i><span>2</span></i><span>Biologe</span></div>
+      <div class="rail-item"><i><span>3</span></i><span>Endgame</span></div>
+      <div class="rail-item"><i><span>4</span></i><span>Alchemie</span></div>
+      <div class="rail-item"><i><span>5</span></i><span>Progression</span></div>
+      <div class="rail-item"><i><span>6</span></i><span>Systeme</span></div>
+      <div class="rail-item"><i><span>7</span></i><span>Equipment</span></div>
+      <div class="rail-item"><i><span>8</span></i><span>Deine Meinung</span></div>
+    </div>
+    <div class="progress"><b id="bar"></b></div><div class="progress-text" id="progressText">Frage 1 von 8</div>
+    <div class="note">Aktuell werden Antworten nur lokal in deinem Browser gespeichert. Die zentrale Datenbank kommt später.</div>
+  </aside>
+
+  <form class="form-wrap" id="form">
+    <div class="form-inner">
+      <section class="step active">
+        <div class="step-no">01</div><div class="step-kicker">Era Identity</div><h2>Welche Grundrichtung spricht dich am meisten an?</h2><p class="help">Das bestimmt nicht automatisch den Server — es zeigt uns, welches Grundgefühl die Gruppe sucht.</p>
+        <div class="choice-grid">
+          <label class="choice"><input required type="radio" name="era" value="2009"><span class="box"><b>2009 Classic</b><small>Sehr klassisch, kompakt, vertraut und stark auf die ursprüngliche Progression fokussiert.</small></span></label>
+          <label class="choice"><input type="radio" name="era" value="2013"><span class="box"><b>2013 Classic</b><small>Mehr Highlevel-Content, spätere Maps und mehr Equipmentgenerationen.</small></span></label>
+          <label class="choice"><input type="radio" name="era" value="hybrid"><span class="box"><b>2009–2013 Hybrid</b><small>Classic Core mit bewusst ausgewähltem und angepasstem Endgame.</small></span></label>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">02</div><div class="step-kicker">Biologist</div><h2>Wie soll der Biologe funktionieren?</h2><p class="help">Klassische Bedeutung behalten, aber vielleicht unnötige Reibung entfernen?</p>
+        <div class="list">
+          <label class="choice"><input required type="radio" name="bio" value="original"><span class="box"><b>Original</b><small>Originale Wartezeit und klassischer Ablauf.</small></span></label>
+          <label class="choice"><input type="radio" name="bio" value="qol"><span class="box"><b>Original + QoL</b><small>Überall abgeben, Fortschritt sichtbar, Wartezeit bleibt bestehen.</small></span></label>
+          <label class="choice"><input type="radio" name="bio" value="modern"><span class="box"><b>Modernisiert</b><small>Weniger Wartezeit und deutlich komfortabler.</small></span></label>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">03</div><div class="step-kicker">Endgame Content</div><h2>Welche späteren Inhalte willst du wirklich spielen?</h2><p class="help">Mehrfachauswahl möglich. Nicht jede historische Map muss CORE werden.</p>
+        <div class="choice-grid two">
+          <label class="choice"><input type="checkbox" name="endgame" value="grotte2"><span class="box"><b>Grotte II</b><small>Klassischer Late-Game-Ausbau.</small></span></label>
+          <label class="choice"><input type="checkbox" name="endgame" value="dragon"><span class="box"><b>Drachenraum</b><small>Beran-Setaou als großer Boss-Meilenstein.</small></span></label>
+          <label class="choice"><input type="checkbox" name="endgame" value="dc"><span class="box"><b>Devil's Catacomb</b><small>Dunkler Dungeon als Endgame-Säule.</small></span></label>
+          <label class="choice"><input type="checkbox" name="endgame" value="2013"><span class="box"><b>2013 Maps</b><small>Ausgewählte Highlevel-Gebiete angepasst auf Level 99.</small></span></label>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">04</div><div class="step-kicker">Dragon Stone Alchemy</div><h2>Was machen wir mit Alchemie?</h2><p class="help">Das System verändert Powercurve und Economy stark — deshalb wollen wir es bewusst entscheiden.</p>
+        <div class="list">
+          <label class="choice"><input required type="radio" name="alchemy" value="none"><span class="box"><b>Gar nicht</b><small>Keine Drachensteinalchemie.</small></span></label>
+          <label class="choice"><input type="radio" name="alchemy" value="simple"><span class="box"><b>Stark vereinfacht</b><small>Weniger RNG und deutlich weniger zusätzliche Stat-Schichten.</small></span></label>
+          <label class="choice"><input type="radio" name="alchemy" value="late"><span class="box"><b>Nur Late Game</b><small>Optional als sehr spätes, kontrolliertes Endgame-System.</small></span></label>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">05</div><div class="step-kicker">Pace</div><h2>Wie schnell soll sich Fortschritt anfühlen?</h2><p class="help">Nicht die exakte EXP-Rate — eher das Gefühl zwischen „langfristig“ und „zügig“.</p>
+        <div class="range-panel"><input id="pace" name="pace" type="range" min="1" max="5" value="3"><div class="range-labels"><span>Sehr langsam</span><strong id="paceLabel">Klassisch</strong><span>Schneller</span></div></div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">06</div><div class="step-kicker">Quality of Life</div><h2>Welche Systeme sind dir wichtig?</h2><p class="help">Mehrfachauswahl möglich. QoL soll helfen — nicht das eigentliche Spiel ersetzen.</p>
+        <div class="choice-grid two">
+          <label class="choice"><input type="checkbox" name="systems" value="offline"><span class="box"><b>Offline Shop</b><small>Handel ohne permanenten Client.</small></span></label>
+          <label class="choice"><input type="checkbox" name="systems" value="wiki"><span class="box"><b>Ingame Wiki</b><small>Items, Mobs, Drops und Fundorte.</small></span></label>
+          <label class="choice"><input type="checkbox" name="systems" value="pickup"><span class="box"><b>Pickup Filter</b><small>Loot filtern statt Inventar-Chaos.</small></span></label>
+          <label class="choice"><input type="checkbox" name="systems" value="events"><span class="box"><b>Eventkalender</b><small>Klare Termine und Übersicht.</small></span></label>
+          <label class="choice"><input type="checkbox" name="systems" value="pet"><span class="box"><b>Pet System</b><small>Leichtgewichtig und PvM-orientiert.</small></span></label>
+          <label class="choice"><input type="checkbox" name="systems" value="battlepass"><span class="box"><b>Battlepass</b><small>Free + Premium, ohne harte Paywall.</small></span></label>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">07</div><div class="step-kicker">Equipment</div><h2>Was soll mit klassischem Equipment passieren?</h2><p class="help">VMS, Rek und klassische Highlevel-Items sollen nicht sofort wertlos werden.</p>
+        <div class="list">
+          <label class="choice"><input required type="radio" name="equipment" value="classic"><span class="box"><b>Klassische Items lange wertvoll</b><small>Weniger Tiers, längere Lebensdauer, stärkere Identität.</small></span></label>
+          <label class="choice"><input type="radio" name="equipment" value="more"><span class="box"><b>Mehr neue Tiers</b><small>Mehr Fortschritt durch zusätzliche Generationen.</small></span></label>
+          <label class="choice"><input type="radio" name="equipment" value="mix"><span class="box"><b>Ausgewogene Mischung</b><small>Alte Items bleiben relevant, spätere Tiers ergänzen nur das Endgame.</small></span></label>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-no">08</div><div class="step-kicker">Final Word</div><h2>Was muss Mera2 unbedingt richtig machen?</h2><p class="help">Was wäre für dich ein Grund zu bleiben — und was würde dich sofort abschrecken?</p>
+        <textarea name="musthave" rows="7" placeholder="Deine Wünsche, No-Gos, Ideen …"></textarea>
+        <label class="final-label"><span>Nickname (optional)</span><input type="text" name="nickname" maxlength="40" placeholder="Wie sollen wir dich nennen?"></label>
+      </section>
+    </div>
+
+    <div class="nav"><button type="button" class="btn" id="prev">Zurück</button><button type="button" class="btn primary" id="next">Weiter</button><button type="submit" class="btn primary hidden" id="submit">Antwort speichern</button></div>
+  </form>
+
+  <section class="thanks hidden" id="thanks">
+    <div class="thanks-inner"><div class="seal"><span>✓</span></div><div class="kicker">VOICE RECORDED</div><h2>Danke für deine Meinung.</h2><p>Deine Antwort wurde auf diesem Gerät lokal gespeichert. Sobald die Datenbank angebunden ist, können wir die Ergebnisse zentral auswerten.</p><a class="btn primary" href="./index.html">Zurück zu Mera2</a></div>
+  </section>
 </main>
+
 <script>
-const steps=[...document.querySelectorAll('.step')],form=document.getElementById('form'),prev=document.getElementById('prev'),next=document.getElementById('next'),submit=document.getElementById('submit'),bar=document.getElementById('bar'),pt=document.getElementById('progressText');let step=0;
-function show(){steps.forEach((s,i)=>s.classList.toggle('active',i===step));prev.disabled=step===0;next.classList.toggle('hidden',step===steps.length-1);submit.classList.toggle('hidden',step!==steps.length-1);bar.style.width=((step+1)/steps.length*100)+'%';pt.textContent='Frage '+(step+1)+' von '+steps.length;scrollTo({top:0,behavior:'smooth'})}
-function valid(){for(const el of steps[step].querySelectorAll('[required]')){if(el.type==='radio'){if(![...steps[step].querySelectorAll('input[name="'+el.name+'"]')].some(x=>x.checked))return false}else if(!el.value)return false}return true}
-next.onclick=()=>{if(!valid()){steps[step].animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:240});return}if(step<steps.length-1){step++;show()}};prev.onclick=()=>{if(step>0){step--;show()}};
+const steps=[...document.querySelectorAll('.step')],rail=[...document.querySelectorAll('.rail-item')],form=document.getElementById('form'),prev=document.getElementById('prev'),next=document.getElementById('next'),submit=document.getElementById('submit'),bar=document.getElementById('bar'),pt=document.getElementById('progressText');let step=0;
+function show(){
+  steps.forEach((s,i)=>s.classList.toggle('active',i===step));
+  rail.forEach((r,i)=>{r.classList.toggle('active',i===step);r.classList.toggle('done',i<step)});
+  prev.disabled=step===0;next.classList.toggle('hidden',step===steps.length-1);submit.classList.toggle('hidden',step!==steps.length-1);
+  bar.style.width=((step+1)/steps.length*100)+'%';pt.textContent='Frage '+(step+1)+' von '+steps.length;
+  scrollTo({top:Math.max(0,document.querySelector('.shell').offsetTop-88),behavior:'smooth'});
+}
+function valid(){
+  for(const el of steps[step].querySelectorAll('[required]')){
+    if(el.type==='radio'){if(![...steps[step].querySelectorAll('input[name="'+el.name+'"]')].some(x=>x.checked))return false}
+    else if(!el.value)return false
+  }return true
+}
+next.onclick=()=>{if(!valid()){steps[step].animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:220});return}if(step<steps.length-1){step++;show()}};
+prev.onclick=()=>{if(step>0){step--;show()}};
 const pace=document.getElementById('pace'),pl=document.getElementById('paceLabel'),labels=['Sehr langsam','Langsam','Klassisch','Zügig','Schneller'];pace.oninput=()=>pl.textContent=labels[+pace.value-1];
-form.onsubmit=e=>{e.preventDefault();const fd=new FormData(form),o={createdAt:new Date().toISOString()};for(const [k,v] of fd.entries())o[k]=o[k]?[].concat(o[k],v):v;const all=JSON.parse(localStorage.getItem('mera2-survey')||'[]');all.push(o);localStorage.setItem('mera2-survey',JSON.stringify(all));form.classList.add('hidden');document.getElementById('intro').classList.add('hidden');document.getElementById('thanks').classList.remove('hidden');scrollTo({top:0,behavior:'smooth'})};show();
+form.onsubmit=e=>{e.preventDefault();const fd=new FormData(form),o={createdAt:new Date().toISOString()};for(const [k,v] of fd.entries())o[k]=o[k]?[].concat(o[k],v):v;const all=JSON.parse(localStorage.getItem('mera2-survey')||'[]');all.push(o);localStorage.setItem('mera2-survey',JSON.stringify(all));form.classList.add('hidden');document.getElementById('side').classList.add('hidden');document.getElementById('thanks').classList.remove('hidden');scrollTo({top:300,behavior:'smooth'})};show();
 </script>
-</body></html>
+</body>
+</html>
