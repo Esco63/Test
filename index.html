@@ -3,58 +3,424 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Mera2 — klassisches MMORPG neu gedacht. Level 99, kompakte Welt, Community-first.">
-<title>Mera2 — The Classic MMORPG Reimagined</title>
+<meta name="theme-color" content="#070707">
+<title>Mera2 — Oldschool Reforged</title>
+<meta name="description" content="Mera2 — ein atmosphärisches Oldschool MMORPG Projekt mit Level 99, kompakter Welt und Community-Entscheidungen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#08090b;--panel:#111316;--panel2:#17191c;--line:#2b2b2a;--text:#e8e1d6;--muted:#9a948a;--gold:#c3904e;--gold2:#e2bd7a;--serif:Georgia,"Times New Roman",serif;--sans:Inter,Arial,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#08090b;color:var(--text);font-family:var(--sans);overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}.noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
-.topbar{position:fixed;z-index:50;top:0;left:0;right:0;height:82px;padding:0 5vw;display:flex;align-items:center;gap:34px;border-bottom:1px solid transparent;transition:.25s;background:linear-gradient(#050607d9,transparent)}.topbar.scrolled{background:#090a0bef;backdrop-filter:blur(16px);border-color:#242424}.brand{display:flex;align-items:center;gap:10px}.brand-mark{width:40px;height:40px;display:grid;place-items:center;border:1px solid #78552f;transform:rotate(45deg);font:700 20px var(--serif);color:var(--gold2)}.brand-mark::first-letter{transform:rotate(-45deg)}.brand-word{font:700 20px var(--serif);letter-spacing:.18em}.brand-word span{color:var(--gold2)}.nav{display:flex;gap:28px;margin-left:auto}.nav a{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:#b2ada4}.nav a:hover{color:var(--gold2)}.btn{min-height:46px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:1px solid #5d4a33;text-transform:uppercase;letter-spacing:.12em;font-size:11px;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-1px)}.btn-primary{background:linear-gradient(135deg,#9c632e,#d8a55e);border-color:#d5a25c;color:#0b0b0b;font-weight:800;box-shadow:0 0 28px #b77a3440}.btn-ghost{background:#0b0d0ed9}.menu{display:none;margin-left:auto;background:none;border:0;color:white;font-size:24px}
-.hero{min-height:100vh;display:grid;place-items:center;position:relative;isolation:isolate;background:
-radial-gradient(circle at 76% 28%,#d8a65a2b 0 9%,transparent 28%),
-linear-gradient(180deg,#05070a 0%,#10161a 47%,#07090a 100%);overflow:hidden}.hero:before{content:"";position:absolute;inset:0;z-index:-3;background:
-linear-gradient(145deg,transparent 0 46%,#151c20 46.2% 53%,transparent 53.2%),
-linear-gradient(30deg,transparent 0 44%,#0d1215 44.2% 51%,transparent 51.2%);opacity:.55;transform:scale(1.4)}.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at center,transparent 18%,#060708bf 70%,#050607 100%)}.moon{position:absolute;right:18%;top:17%;width:118px;height:118px;border-radius:50%;background:#ebd2a1;box-shadow:0 0 100px #d18a3f55;z-index:-2}.pagoda{position:absolute;right:18%;bottom:22%;width:110px;height:190px;z-index:-1;opacity:.85}.pagoda:before,.pagoda:after{content:"";position:absolute;background:#050607}.pagoda:before{width:14px;height:150px;left:48px;bottom:0}.pagoda:after{width:110px;height:18px;left:0;top:48px;clip-path:polygon(0 100%,17% 0,83% 0,100% 100%);box-shadow:0 45px 0 #050607,0 90px 0 #050607}.hero-content{text-align:center;width:min(850px,90vw);padding-top:70px}.eyebrow{font-size:10px;letter-spacing:.34em;color:#b6a07f}.hero h1{font:700 clamp(78px,14vw,170px)/.84 var(--serif);letter-spacing:.06em;margin:26px 0 8px;text-shadow:0 0 40px #000}.hero h1 span{color:var(--gold2)}.hero-kicker{font:600 13px var(--serif);letter-spacing:.34em;color:#d5c5aa}.hero-copy{max-width:690px;margin:24px auto;color:#b5afa4;line-height:1.8;font-size:15px}.hero-actions{display:flex;justify-content:center;gap:14px;margin-top:32px}.status{position:relative;z-index:5;margin:-42px auto 0;max-width:1100px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:#0d0f10e8;backdrop-filter:blur(14px)}.status div{padding:21px 24px;border-right:1px solid var(--line)}.status div:last-child{border:0}.status strong{display:block;font-size:9px;letter-spacing:.18em;color:#8c857b}.status em{display:block;margin-top:7px;font:normal 16px var(--serif);color:#ded1bd}.pulse{display:inline-block;width:7px;height:7px;border-radius:50%;background:#5ac676;box-shadow:0 0 12px #5ac676;margin-right:8px}
-.section{padding:120px max(6vw,24px)}.heading{max-width:720px}.kicker{font-size:10px;letter-spacing:.24em;color:#aa7d47;text-transform:uppercase}.heading h2{font:500 clamp(36px,6vw,68px)/1.06 var(--serif);margin:14px 0 20px}.heading h2 span{color:#b88a51}.heading p{color:var(--muted);line-height:1.8}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}.card{min-height:260px;padding:30px;border:1px solid var(--line);background:linear-gradient(145deg,#141719,#0c0e0f);position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:#a56b3030;filter:blur(35px);right:-70px;bottom:-70px}.card .num{font:700 42px var(--serif);color:#4d4030}.card h3{font:500 26px var(--serif);margin:45px 0 10px}.card p{color:#918b82;line-height:1.7}.era{padding:70px max(6vw,24px);background:#0b0d0f}.era-box{max-width:1160px;margin:auto;border:1px solid var(--line);background:linear-gradient(135deg,#151515,#0c0d0e);padding:54px;display:grid;grid-template-columns:1fr 1.2fr;gap:60px}.timeline{display:grid;grid-template-columns:repeat(5,1fr);align-items:end;position:relative}.timeline:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#40372d}.node{text-align:center;position:relative;padding-top:58px}.node:before{content:"";position:absolute;top:calc(50% - 5px);left:calc(50% - 5px);width:10px;height:10px;background:#9b6e3d;transform:rotate(45deg);box-shadow:0 0 20px #b57836}.node b{font:600 19px var(--serif);color:#dac49e}.node small{display:block;color:#777168;margin-top:6px;font-size:9px}.classes{background:radial-gradient(circle at center,#17191b,#090a0b 72%)}.class-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}.class-tab{padding:13px 19px;border:1px solid var(--line);background:#0b0d0e;color:#aaa39a;cursor:pointer}.class-tab.active{color:#e9c27d;border-color:#8d673b;background:#18140f}.class-box{display:grid;grid-template-columns:150px 1fr 280px;gap:35px;align-items:center;margin-top:18px;padding:36px;border:1px solid var(--line);background:#0c0e10}.emblem{width:120px;height:120px;border:1px solid #765b39;display:grid;place-items:center;font-size:48px;transform:rotate(45deg);color:#e6bc72}.emblem span{transform:rotate(-45deg)}.class-box h3{font:500 34px var(--serif);margin:6px 0}.class-box p{color:var(--muted);line-height:1.7}.stat{padding:10px 0;border-bottom:1px solid #242424;display:flex;justify-content:space-between;color:#878178;font-size:11px}.stat b{color:#c8ad82}.news{background:#090a0b}.news-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;margin-top:40px}.news-card{border:1px solid var(--line);background:#101214}.news-art{height:190px;background:linear-gradient(135deg,#3c2c1f,#171c20);position:relative;overflow:hidden}.news-art:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 220deg,transparent,#bd7a3844,transparent 45%);animation:spin 16s linear infinite}.news-body{padding:24px}.news-body time{font-size:9px;letter-spacing:.16em;color:#8c6740}.news-body h3{font:500 24px var(--serif);margin:10px 0}.news-body p{color:#8d887f;line-height:1.6;font-size:13px}.roadmap{padding:110px max(6vw,24px);background:#0d0f10}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:45px}.step{border-top:1px solid #3c342b;padding-top:22px}.step span{font:700 30px var(--serif);color:#55422f}.step b{display:block;margin-top:14px}.step small{display:block;color:#77726a;margin-top:7px}.step.active{border-color:#b98448}.step.active span{color:#d6a45f}.cta{padding:90px max(6vw,24px);background:radial-gradient(circle at 30% 50%,#6d482322,transparent 38%),#08090a}.cta-box{max-width:1120px;margin:auto;padding:52px;border:1px solid #4a3927;background:linear-gradient(135deg,#17120e,#101214);display:flex;align-items:center;justify-content:space-between;gap:40px}.cta h2{font:500 46px var(--serif);margin:10px 0}.cta p{color:#9b9489;max-width:660px;line-height:1.7}footer{padding:36px 6vw;border-top:1px solid #202020;display:flex;justify-content:space-between;align-items:center;color:#6f6b65;font-size:11px}.reveal{opacity:0;transform:translateY(24px);transition:.7s}.reveal.visible{opacity:1;transform:none}@keyframes spin{to{transform:rotate(1turn)}}
-@media(max-width:900px){.nav{display:none;position:absolute;top:82px;left:0;right:0;background:#090a0b;padding:24px 5vw;flex-direction:column}.nav.open{display:flex}.menu{display:block}.topbar>.btn{display:none}.status{grid-template-columns:1fr 1fr;margin:-20px 18px 0}.status div:nth-child(2){border-right:0}.grid3,.news-grid{grid-template-columns:1fr}.era-box,.class-box{grid-template-columns:1fr}.timeline{min-height:190px;overflow:auto}.class-box{text-align:center}.emblem{margin:auto}.steps{grid-template-columns:1fr}.cta-box{align-items:flex-start;flex-direction:column}.hero h1{font-size:92px}}
-@media(max-width:560px){.topbar{height:70px;padding:0 18px}.nav{top:70px}.brand-word{font-size:17px}.hero{min-height:760px}.hero h1{font-size:64px}.hero-actions{flex-direction:column;align-items:center}.hero-actions .btn{width:260px}.status{grid-template-columns:1fr 1fr}.status div{padding:15px 12px}.section{padding:85px 20px}.era{padding:40px 14px}.era-box{padding:30px 22px;overflow:hidden}.timeline{min-width:560px}.cta{padding:60px 14px}.cta-box{padding:34px 22px}.cta h2{font-size:36px}footer{flex-direction:column;gap:18px}}
+:root{
+  --bg:#060606;
+  --bg2:#0b0b0b;
+  --panel:#101010;
+  --panel2:#15130f;
+  --line:rgba(217,176,103,.22);
+  --line2:rgba(255,255,255,.08);
+  --text:#eee8dc;
+  --muted:#9b958a;
+  --gold:#b98542;
+  --gold2:#e5bd7d;
+  --gold3:#765228;
+  --red:#5e1712;
+  --serif:"Cinzel",serif;
+  --sans:"Inter",sans-serif;
+  --hero:url("https://images.unsplash.com/photo-1717183421525-e915bbd4c8bd?auto=format&fit=crop&fm=jpg&q=88&w=2200");
+  --castle:url("https://images.unsplash.com/photo-1512424113276-fa9f6a112384?auto=format&fit=crop&fm=jpg&q=82&w=1800");
+  --warrior:url("https://images.unsplash.com/photo-1754474419533-7e2eb0e6fa60?auto=format&fit=crop&fm=jpg&q=82&w=1600");
+  --armor:url("https://images.unsplash.com/photo-1658270600988-7e6a66ed253e?auto=format&fit=crop&fm=jpg&q=82&w=1400");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:#a87335;color:#fff}
+
+.frame-line{position:fixed;z-index:200;pointer-events:none;background:rgba(224,190,126,.14)}
+.frame-line.l{top:0;bottom:0;left:18px;width:1px}
+.frame-line.r{top:0;bottom:0;right:18px;width:1px}
+.grain{position:fixed;inset:0;z-index:199;pointer-events:none;opacity:.055;mix-blend-mode:screen;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+#embers{position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.65}
+
+.utility{height:31px;padding:0 54px;display:flex;align-items:center;justify-content:space-between;background:#050505;border-bottom:1px solid rgba(255,255,255,.04);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#777269;position:absolute;top:0;left:0;right:0;z-index:60}
+.utility .right{display:flex;gap:20px}
+.utility .online{color:#9f9a90}.online i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#78b56c;box-shadow:0 0 8px #78b56c;margin-right:7px}
+
+.navbar{height:78px;position:absolute;top:31px;left:0;right:0;z-index:60;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 54px;border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(3,3,3,.72),rgba(3,3,3,.22));backdrop-filter:blur(4px)}
+.nav-left,.nav-right{display:flex;gap:28px;align-items:center}
+.nav-right{justify-content:flex-end}
+.navbar a:not(.logo):not(.nav-cta){font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#b0aaa0;transition:.2s}
+.navbar a:hover{color:var(--gold2)}
+.logo{text-align:center;line-height:1}
+.logo strong{display:block;font:700 25px var(--serif);letter-spacing:.23em;color:#fff;text-shadow:0 1px 0 #000}
+.logo strong span{color:var(--gold2)}
+.logo small{display:block;margin-top:5px;font-size:7px;letter-spacing:.38em;color:#76644e}
+.nav-cta{border-left:1px solid rgba(255,255,255,.1);padding-left:26px!important;color:#e8bd79!important}
+.mobile-menu{display:none;background:none;border:0;font-size:22px}
+
+.hero{min-height:920px;height:100vh;position:relative;overflow:hidden;isolation:isolate;background:#050505}
+.hero-bg{position:absolute;inset:-6%;z-index:-5;background-image:var(--hero);background-size:cover;background-position:center 38%;filter:saturate(.56) contrast(1.11) brightness(.57);transform:scale(1.06)}
+.hero-bg:after{content:"";position:absolute;inset:0;background:
+linear-gradient(90deg,#050505 0%,rgba(5,5,5,.28) 36%,rgba(5,5,5,.12) 60%,#050505 100%),
+linear-gradient(180deg,rgba(0,0,0,.3) 0%,rgba(0,0,0,.04) 48%,#060606 97%)}
+.hero-vignette{position:absolute;inset:0;z-index:-3;background:radial-gradient(circle at 50% 38%,transparent 12%,rgba(0,0,0,.18) 45%,rgba(0,0,0,.82) 100%)}
+.hero-content{position:absolute;left:8vw;top:50%;transform:translateY(-43%);max-width:760px;z-index:10}
+.eyebrow{display:flex;align-items:center;gap:15px;font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:#c5ac84}
+.eyebrow:before{content:"";width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2))}
+.hero h1{font:700 clamp(80px,11vw,168px)/.78 var(--serif);letter-spacing:.08em;margin:24px 0 18px;color:#f4efe5;text-shadow:0 4px 20px #000,0 0 65px rgba(0,0,0,.9);position:relative}
+.hero h1 span{color:transparent;background:linear-gradient(#ffe2a7 10%,#a96d31 52%,#efd094 84%);-webkit-background-clip:text;background-clip:text;text-shadow:none;filter:drop-shadow(0 3px 2px #000)}
+.hero-tag{font:500 17px var(--serif);letter-spacing:.32em;color:#d2c2ab;text-transform:uppercase}
+.hero-copy{max-width:670px;margin:24px 0;color:#b1aaa0;line-height:1.85;font-size:14px;text-shadow:0 1px 3px #000}
+.actions{display:flex;gap:13px;margin-top:34px;flex-wrap:wrap}
+.btn{height:51px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(214,174,107,.45);background:rgba(8,8,8,.82);text-transform:uppercase;font-size:10px;font-weight:600;letter-spacing:.15em;transition:.25s;overflow:hidden}
+.btn:before{content:"";position:absolute;inset:3px;border:1px solid rgba(255,255,255,.035);pointer-events:none}
+.btn:hover{transform:translateY(-2px);border-color:#ddb36f;box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 25px rgba(185,133,66,.14)}
+.btn.gold{background:linear-gradient(135deg,#6e451f,#b97b39 48%,#e0ae65);color:#0c0905;border-color:#e3b76e;font-weight:800}
+.btn.gold:hover{box-shadow:0 12px 35px rgba(0,0,0,.45),0 0 35px rgba(206,146,70,.25)}
+.hero-seal{position:absolute;right:9vw;top:48%;width:220px;height:220px;transform:translateY(-50%) rotate(45deg);border:1px solid rgba(224,185,120,.32);display:grid;place-items:center;z-index:10}
+.hero-seal:before,.hero-seal:after{content:"";position:absolute;inset:14px;border:1px solid rgba(224,185,120,.12)}
+.hero-seal:after{inset:34px}
+.hero-seal-inner{transform:rotate(-45deg);text-align:center}
+.hero-seal-inner strong{display:block;font:600 53px var(--serif);color:#e9d0a4;text-shadow:0 0 30px #000}
+.hero-seal-inner small{display:block;font-size:8px;letter-spacing:.23em;color:#a89270}
+.hero-bottom{position:absolute;left:0;right:0;bottom:0;height:118px;background:linear-gradient(180deg,transparent,#060606 68%);z-index:6}
+.scroll-hint{position:absolute;right:52px;bottom:70px;z-index:20;writing-mode:vertical-rl;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:#777}
+.scroll-hint:after{content:"";display:block;width:1px;height:62px;background:linear-gradient(var(--gold2),transparent);margin:12px auto 0}
+
+.showcase-wrap{position:relative;z-index:30;margin-top:-104px;padding:0 7vw}
+.showcase{max-width:1260px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:center;position:relative}
+.poster{height:390px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.11);background:#111;box-shadow:0 25px 60px rgba(0,0,0,.55);transition:.35s;isolation:isolate}
+.poster:nth-child(1){transform:translateX(35px) scale(.92);z-index:1}
+.poster:nth-child(2){height:440px;z-index:3}
+.poster:nth-child(3){transform:translateX(-35px) scale(.92);z-index:1}
+.poster:hover{z-index:6!important;transform:translateY(-9px) scale(1)!important}
+.poster .img{position:absolute;inset:0;background-size:cover;background-position:center;z-index:-3;filter:saturate(.58) contrast(1.07)}
+.poster.one .img{background-image:var(--armor);background-position:center 35%}
+.poster.two .img{background-image:var(--warrior);background-position:center 38%}
+.poster.three .img{background-image:var(--castle);background-position:center}
+.poster:after{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.18) 48%,rgba(0,0,0,.96))}
+.poster-content{position:absolute;left:26px;right:26px;bottom:25px}
+.poster-year{font:600 9px var(--serif);letter-spacing:.26em;color:#d7ad6d}
+.poster h3{font:600 25px/1.15 var(--serif);margin:9px 0 7px;text-transform:uppercase}
+.poster p{font-size:11px;color:#aaa297;line-height:1.55;margin:0}
+.poster-line{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin-top:16px}
+
+.icon-strip{max-width:1120px;margin:66px auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.icon-feature{padding:28px 20px;text-align:center;border-right:1px solid var(--line2)}
+.icon-feature:last-child{border:0}
+.icon{width:43px;height:43px;border:1px solid #6f573a;transform:rotate(45deg);display:grid;place-items:center;margin:0 auto 17px;color:#d6b17a;font-size:18px}
+.icon span{transform:rotate(-45deg)}
+.icon-feature b{display:block;font:500 12px var(--serif);letter-spacing:.09em;text-transform:uppercase}
+.icon-feature small{display:block;margin-top:7px;color:#706c65;font-size:9px}
+
+.section{position:relative;padding:145px 7vw}
+.section.dark{background:linear-gradient(180deg,#060606,#0b0b0b 40%,#080808)}
+.kicker{font-size:9px;letter-spacing:.29em;text-transform:uppercase;color:#ae8250}
+.title{font:600 clamp(36px,5vw,68px)/1.08 var(--serif);margin:12px 0 22px;text-transform:uppercase}
+.title em{font-style:normal;color:var(--gold2)}
+.lead{max-width:680px;color:#979188;line-height:1.85;font-size:14px}
+.about-grid{max-width:1250px;margin:auto;display:grid;grid-template-columns:.88fr 1.12fr;gap:90px;align-items:center}
+.big99{position:relative;min-height:520px;border:1px solid rgba(255,255,255,.07);background:
+linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.74)),
+var(--castle) center/cover;overflow:hidden}
+.big99:before{content:"99";position:absolute;left:-12px;bottom:-36px;font:700 235px/.8 var(--serif);color:rgba(232,196,134,.09);letter-spacing:-.08em}
+.big99:after{content:"MAX LEVEL";position:absolute;right:20px;top:22px;font-size:8px;letter-spacing:.31em;color:#c7aa7c;writing-mode:vertical-rl}
+.big99-caption{position:absolute;left:30px;bottom:28px;right:30px}
+.big99-caption strong{font:600 23px var(--serif)}
+.big99-caption p{margin:10px 0 0;color:#958f86;line-height:1.6;font-size:12px}
+.rule{width:82px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:25px 0}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:30px}
+.check{font-size:11px;color:#b2aaa0;border-bottom:1px solid rgba(255,255,255,.05);padding:11px 0}
+.check:before{content:"✦";color:#b78143;margin-right:10px}
+
+.parallax{min-height:620px;position:relative;display:grid;place-items:center;text-align:center;isolation:isolate;background:var(--hero) center 30%/cover fixed}
+.parallax:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#050505cc,#0b0b0b70,#050505cc),linear-gradient(180deg,#070707 0%,transparent 18%,transparent 80%,#070707 100%)}
+.parallax .inner{max-width:800px;padding:70px 24px}
+.parallax .crest{width:78px;height:78px;border:1px solid rgba(229,189,125,.45);margin:0 auto 30px;transform:rotate(45deg);display:grid;place-items:center}
+.parallax .crest span{transform:rotate(-45deg);font:600 24px var(--serif);color:#e7c282}
+.parallax h2{font:600 clamp(40px,6vw,74px)/1.05 var(--serif);text-transform:uppercase;margin:0 0 18px}
+.parallax p{color:#c1b9ad;line-height:1.8;text-shadow:0 2px 8px #000}
+
+.classes{background:#080808}
+.classes-head{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:end;gap:40px}
+.class-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.class-tab{padding:11px 15px;background:transparent;border:1px solid rgba(255,255,255,.08);font-size:9px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:#777}
+.class-tab.active{border-color:#8a663a;color:#e5bd7d;background:#15110c}
+.class-stage{max-width:1180px;min-height:550px;margin:38px auto 0;display:grid;grid-template-columns:1.05fr .95fr;border:1px solid rgba(255,255,255,.08);background:#0d0d0d;overflow:hidden;position:relative}
+.class-art{position:relative;min-height:550px;background:var(--warrior) center/cover;filter:saturate(.55)}
+.class-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 50%,#0d0d0d 100%),linear-gradient(180deg,transparent 60%,#0d0d0dcc)}
+.class-copy{padding:70px 58px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.class-copy:before{content:attr(data-letter);position:absolute;right:20px;top:10px;font:700 220px/.8 var(--serif);color:rgba(214,174,107,.04)}
+.class-copy small{font-size:9px;letter-spacing:.27em;color:#aa7d47}
+.class-copy h3{font:600 41px var(--serif);text-transform:uppercase;margin:10px 0 18px}
+.class-copy p{color:#928c83;line-height:1.8;font-size:13px;max-width:480px}
+.class-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:28px}
+.metric{padding:15px;border:1px solid rgba(255,255,255,.07);text-align:center}
+.metric b{display:block;font:500 13px var(--serif);color:#d6b17a}
+.metric span{display:block;margin-top:5px;font-size:8px;color:#69655f;text-transform:uppercase;letter-spacing:.12em}
+
+.news-section{background:linear-gradient(180deg,#0a0a0a,#050505)}
+.section-head{max-width:1180px;margin:0 auto 42px;display:flex;justify-content:space-between;align-items:end;gap:30px}
+.news-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+.news-feature{min-height:520px;position:relative;border:1px solid rgba(255,255,255,.08);overflow:hidden;background:var(--castle) center/cover}
+.news-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.16) 45%,#080808 95%)}
+.news-feature .copy{position:absolute;z-index:2;left:34px;right:34px;bottom:32px}
+.news-tag{font-size:8px;letter-spacing:.24em;color:#d3a565;text-transform:uppercase}
+.news-feature h3{font:600 31px var(--serif);text-transform:uppercase;margin:10px 0}
+.news-feature p{max-width:600px;color:#aaa39a;font-size:12px;line-height:1.7}
+.news-stack{display:grid;gap:18px}
+.news-card{min-height:251px;border:1px solid rgba(255,255,255,.08);background:#0e0e0e;padding:28px;position:relative;overflow:hidden}
+.news-card:before{content:"";position:absolute;right:-50px;top:-50px;width:180px;height:180px;border:1px solid rgba(214,174,107,.06);transform:rotate(45deg)}
+.news-card time{font-size:8px;letter-spacing:.18em;color:#8b683e}
+.news-card h4{font:600 21px var(--serif);margin:22px 0 11px;text-transform:uppercase}
+.news-card p{color:#77736d;line-height:1.65;font-size:12px}
+
+.roadmap{padding:125px 7vw;background:#070707}
+.roadmap-inner{max-width:1180px;margin:auto}
+.roadline{margin-top:48px;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.roadline:before{content:"";position:absolute;left:0;right:0;top:21px;height:1px;background:#26221d}
+.roadstep{position:relative;padding-right:26px}
+.dot{width:43px;height:43px;border:1px solid #55432e;background:#090909;transform:rotate(45deg);display:grid;place-items:center;position:relative;z-index:1}
+.dot span{transform:rotate(-45deg);font:600 12px var(--serif);color:#84715a}
+.roadstep.active .dot{border-color:#c08b4b;box-shadow:0 0 26px rgba(192,139,75,.16)}
+.roadstep.active .dot span{color:#e9bf78}
+.roadstep b{display:block;margin-top:25px;font:500 13px var(--serif);text-transform:uppercase}
+.roadstep small{display:block;margin-top:7px;color:#6f6a64;font-size:9px;line-height:1.5}
+
+.cta{padding:120px 7vw;background:
+linear-gradient(90deg,rgba(7,7,7,.98),rgba(7,7,7,.72)),
+var(--warrior) center/cover fixed}
+.cta-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:50px;border-top:1px solid rgba(210,168,101,.32);border-bottom:1px solid rgba(210,168,101,.32);padding:60px 0}
+.cta h2{font:600 clamp(35px,5vw,62px)/1.08 var(--serif);text-transform:uppercase;margin:8px 0 15px}
+.cta p{color:#a9a197;max-width:720px;line-height:1.8;font-size:13px}
+
+footer{background:#040404;border-top:1px solid rgba(255,255,255,.06);padding:46px 7vw 28px}
+.footer-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:50px}
+.footer-brand strong{font:700 28px var(--serif);letter-spacing:.2em}.footer-brand strong span{color:#d3a45e}
+.footer-brand p{color:#6f6b65;font-size:11px;line-height:1.7;max-width:350px}
+.footer-col b{font:500 10px var(--serif);letter-spacing:.15em;text-transform:uppercase;color:#bba78a}
+.footer-col a{display:block;color:#706c65;font-size:10px;margin-top:12px}.footer-col a:hover{color:#cda565}
+.copyright{max-width:1180px;margin:36px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;color:#4d4a46;font-size:8px;letter-spacing:.08em;text-transform:uppercase}
+
+.side-social{position:fixed;z-index:80;right:0;top:50%;transform:translateY(-50%);background:#070707;border:1px solid rgba(255,255,255,.08);border-right:0;padding:16px 9px;writing-mode:vertical-rl;font-size:8px;letter-spacing:.18em;color:#6f6a64;text-transform:uppercase}
+.side-social span{color:#c29353;margin-bottom:10px}
+
+.reveal{opacity:0;transform:translateY(25px);transition:.75s ease}.reveal.visible{opacity:1;transform:none}
+.reveal.delay1{transition-delay:.08s}.reveal.delay2{transition-delay:.16s}
+
+@media(max-width:1050px){
+  .utility{padding:0 28px}.navbar{padding:0 28px}.nav-left,.nav-right{gap:18px}
+  .hero-content{left:7vw}.hero-seal{right:5vw;width:170px;height:170px}
+  .showcase-wrap{padding:0 4vw}
+  .about-grid{gap:45px}
+  .class-copy{padding:55px 35px}
+}
+@media(max-width:860px){
+  .frame-line,.side-social,.utility{display:none}
+  .navbar{top:0;height:72px;grid-template-columns:auto 1fr auto;padding:0 20px;background:rgba(5,5,5,.82)}
+  .nav-left,.nav-right{display:none;position:absolute;top:72px;left:0;right:0;background:#090909;padding:20px;flex-direction:column;align-items:flex-start;border-bottom:1px solid #242424}
+  .nav-left.open{display:flex}.nav-right.open{display:flex;top:226px}
+  .logo{grid-column:1}.mobile-menu{display:block;grid-column:3}
+  .hero{min-height:820px}.hero-content{left:6vw;right:6vw;top:49%}.hero-seal{display:none}.scroll-hint{display:none}
+  .showcase{grid-template-columns:1fr}.poster,.poster:nth-child(1),.poster:nth-child(2),.poster:nth-child(3){height:330px;transform:none;margin-top:-1px}
+  .icon-strip{grid-template-columns:1fr 1fr;margin-top:40px}.icon-feature:nth-child(2){border-right:0}.icon-feature:nth-child(-n+2){border-bottom:1px solid var(--line2)}
+  .about-grid,.class-stage,.news-grid,.footer-inner{grid-template-columns:1fr}
+  .big99{min-height:420px}.class-stage{min-height:0}.class-art{min-height:420px}.classes-head,.section-head{align-items:flex-start;flex-direction:column}
+  .roadline{grid-template-columns:1fr;gap:25px}.roadline:before{left:21px;top:0;bottom:0;width:1px;height:auto;right:auto}.roadstep{padding-left:65px;min-height:70px}.dot{position:absolute;left:0;top:0}.roadstep b{margin-top:0;padding-top:6px}
+  .cta-inner{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .hero{min-height:760px}.hero h1{font-size:62px}.hero-tag{font-size:11px;letter-spacing:.2em}.hero-copy{font-size:12px}.actions{flex-direction:column}.actions .btn{width:100%}
+  .section{padding:95px 20px}.showcase-wrap{padding:0 14px;margin-top:-70px}.poster,.poster:nth-child(2){height:300px}
+  .icon-strip{margin-left:14px;margin-right:14px}.icon-feature{padding:22px 12px}
+  .about-grid{gap:35px}.big99{min-height:350px}.checks{grid-template-columns:1fr}
+  .parallax{min-height:500px;background-attachment:scroll}
+  .class-copy{padding:38px 22px}.class-copy h3{font-size:30px}.class-art{min-height:360px}.class-metrics{grid-template-columns:1fr}
+  .news-feature{min-height:430px}.news-feature .copy{left:22px;right:22px;bottom:22px}.news-feature h3{font-size:24px}
+  .roadmap,.cta{padding:90px 20px}.cta{background-attachment:scroll}
+  footer{padding:40px 20px 24px}.copyright{flex-direction:column;gap:10px}
+}
 </style>
 </head>
 <body>
-<div class="noise"></div>
-<header class="topbar" id="topbar">
-<a class="brand" href="#top"><span class="brand-mark">M</span><span class="brand-word">MERA<span>2</span></span></a>
-<nav class="nav" id="nav"><a href="#news">News</a><a href="#world">Welt</a><a href="#classes">Klassen</a><a href="#roadmap">Roadmap</a><a href="./survey.html">Community</a></nav>
-<a class="btn" href="./survey.html">Mitentscheiden</a><button class="menu" id="menu">☰</button>
+<div class="frame-line l"></div><div class="frame-line r"></div><div class="grain"></div><canvas id="embers"></canvas>
+<div class="side-social"><span>●</span> Mera2 / Community Project</div>
+
+<div class="utility">
+  <div>Oldschool MMORPG · In Development</div>
+  <div class="right"><span class="online"><i></i>Projekt aktiv</span><span>DE / EN</span></div>
+</div>
+
+<header class="navbar">
+  <nav class="nav-left" id="navLeft"><a href="#world">Welt</a><a href="#classes">Klassen</a><a href="#news">Devlog</a></nav>
+  <a class="logo" href="#top"><strong>MERA<span>2</span></strong><small>OLDSCHOOL REFORGED</small></a>
+  <nav class="nav-right" id="navRight"><a href="#roadmap">Roadmap</a><a href="./survey.html">Community</a><a class="nav-cta" href="./survey.html">Mitentscheiden</a></nav>
+  <button class="mobile-menu" id="menu">☰</button>
 </header>
+
 <main id="top">
-<section class="hero"><div class="moon"></div><div class="pagoda"></div><div class="hero-content">
-<div class="eyebrow">OLD SCHOOL · NEW ERA</div><h1>MERA<span>2</span></h1><div class="hero-kicker">THE CLASSIC MMORPG REIMAGINED</div>
-<p class="hero-copy">Ein kompaktes Level-99-Abenteuer auf klassischer Grundlage — mit ausgewählten 2009–2013-Inhalten, moderner Technik und einer Community, die mitentscheidet.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="./survey.html">Community-Umfrage ›</a><a class="btn btn-ghost" href="#world">Welt entdecken</a></div>
-</div></section>
-<section class="status"><div><strong>PROJEKTSTATUS</strong><em><span class="pulse"></span>In Entwicklung</em></div><div><strong>MAX LEVEL</strong><em>99</em></div><div><strong>WELT</strong><em>Kompakt & relevant</em></div><div><strong>ERA</strong><em>2009 → 2013</em></div></section>
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div><div class="hero-vignette"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Ein Reich zwischen Erinnerung und Neuanfang</div>
+    <h1>MERA<span>2</span></h1>
+    <div class="hero-tag">The Classic MMORPG Reforged</div>
+    <p class="hero-copy">Level 99. Kompakte Welt. 2009 als Fundament, ausgewählte Inhalte bis 2013 als bewusst angepasstes Endgame. Keine Feature-Flut — jeder Ort, jedes Item und jeder Boss braucht einen Grund zu existieren.</p>
+    <div class="actions"><a class="btn gold" href="./survey.html">Community-Umfrage</a><a class="btn" href="#world">Die Welt betreten</a></div>
+  </div>
+  <div class="hero-seal"><div class="hero-seal-inner"><strong>99</strong><small>MAX LEVEL</small></div></div>
+  <div class="scroll-hint">Scroll to descend</div>
+  <div class="hero-bottom"></div>
+</section>
 
-<section class="section" id="world"><div class="heading reveal"><div class="kicker">DIE VISION</div><h2>Oldschool im Herzen.<br><span>Modern im Fundament.</span></h2><p>Mera2 soll sich vertraut anfühlen, ohne die technischen Altlasten von damals zu übernehmen. Langsame, wertvolle Progression. Bedeutungsvoller Handel. Klare Contentrollen.</p></div>
-<div class="grid3"><article class="card reveal"><span class="num">I</span><h3>Level 99</h3><p>Eine klare Progression ohne endlose Levelspirale. Jede Etappe soll sich verdient anfühlen.</p></article><article class="card reveal"><span class="num">II</span><h3>Kompakte Welt</h3><p>Keine leeren Maps. Jedes Gebiet bekommt eine eindeutige Aufgabe für Progression und Wirtschaft.</p></article><article class="card reveal"><span class="num">III</span><h3>Community First</h3><p>Die wichtigsten Designentscheidungen entstehen gemeinsam — bevor sie in Produktion gehen.</p></article></div></section>
+<section class="showcase-wrap">
+  <div class="showcase">
+    <article class="poster one reveal"><div class="img"></div><div class="poster-content"><div class="poster-year">2009 · THE ROOTS</div><h3>Classic Core</h3><p>Map1, Orktal, Dämonenturm, klassische Items und eine Wirtschaft, in der Fortschritt wieder Gewicht hat.</p><div class="poster-line"></div></div></article>
+    <article class="poster two reveal delay1"><div class="img"></div><div class="poster-content"><div class="poster-year">MERA2 · THE VISION</div><h3>Oldschool Reforged</h3><p>Bekannte DNA, moderne Technik, saubere Systeme und acht vollwertige Skillrichtungen.</p><div class="poster-line"></div></div></article>
+    <article class="poster three reveal delay2"><div class="img"></div><div class="poster-content"><div class="poster-year">2010–2013 · THE EDGE</div><h3>Selected Endgame</h3><p>Grotte II, Drachenraum, Devil's Catacomb und späterer Content — nur dort, wo er die Welt wirklich besser macht.</p><div class="poster-line"></div></div></article>
+  </div>
 
-<section class="era"><div class="era-box reveal"><div><div class="kicker">DIE ÄRA</div><h2 style="font:500 44px var(--serif);margin:12px 0">Von 2009 bis 2013.<br><span style="color:#b88a51">Bewusst kuratiert.</span></h2><p style="color:var(--muted);line-height:1.8">2009 liefert das Fundament. Spätere Inhalte werden nicht blind übernommen, sondern an eine kompakte Level-99-Welt angepasst.</p></div><div class="timeline"><div class="node"><b>2009</b><small>Classic Core</small></div><div class="node"><b>2010</b><small>Grotte II</small></div><div class="node"><b>2011</b><small>Dragon & DC</small></div><div class="node"><b>2012</b><small>Selective</small></div><div class="node"><b>2013</b><small>Endgame</small></div></div></div></section>
+  <div class="icon-strip reveal">
+    <div class="icon-feature"><div class="icon"><span>⚔</span></div><b>Meaningful PvM</b><small>Metins · Bosse · Dungeons</small></div>
+    <div class="icon-feature"><div class="icon"><span>◇</span></div><b>Stable Economy</b><small>Wert statt Wegwerfloot</small></div>
+    <div class="icon-feature"><div class="icon"><span>♜</span></div><b>Guild Identity</b><small>Competition · Rankings</small></div>
+    <div class="icon-feature"><div class="icon"><span>✦</span></div><b>Modern QoL</b><small>Komfort ohne Powercreep</small></div>
+  </div>
+</section>
 
-<section class="section classes" id="classes"><div class="heading reveal"><div class="kicker">VIER KLASSEN · ACHT WEGE</div><h2>Jede Skillrichtung ein<br><span>vollwertiger Main.</span></h2></div>
-<div class="class-tabs reveal"><button class="class-tab active" data-c="warrior">Krieger</button><button class="class-tab" data-c="ninja">Ninja</button><button class="class-tab" data-c="sura">Sura</button><button class="class-tab" data-c="shaman">Schamane</button></div>
-<div class="class-box reveal"><div class="emblem"><span id="emblem">⚔</span></div><div><small id="role" style="color:#a47843;letter-spacing:.16em">KRIEGER</small><h3 id="ctitle">Kraft trifft Ausdauer.</h3><p id="ctext">Body und Mental sollen gleichermaßen leveln, Metins farmen, Bosse spielen und im PvP bestehen können.</p></div><div><div class="stat"><span>Metin</span><b>ausgeglichen</b></div><div class="stat"><span>Boss</span><b>ausgeglichen</b></div><div class="stat"><span>PvP</span><b>eigener Modifier</b></div></div></div></section>
+<section class="section dark" id="world">
+  <div class="about-grid">
+    <div class="big99 reveal"><div class="big99-caption"><strong>Eine Welt, die sich nicht leer anfühlt.</strong><p>Weniger redundante Gebiete. Mehr Gründe, an alte Orte zurückzukehren.</p></div></div>
+    <div class="reveal delay1">
+      <div class="kicker">MERA2 // WORLD DESIGN</div>
+      <h2 class="title">Oldschool im Herzen.<br><em>Konsequent im Design.</em></h2>
+      <p class="lead">Wir bauen nicht einfach ein Serverfile-Paket zusammen. Die klassische Metin2-Welt wird als zusammenhängende Progression neu geordnet: von Map1 bis zum Endgame, mit klaren Farmrollen, langlebigem Equipment und kontrollierter Economy.</p>
+      <div class="rule"></div>
+      <div class="checks">
+        <div class="check">Max Level 99 bleibt gesetzt</div>
+        <div class="check">Kompakte aktive Welt</div>
+        <div class="check">2009 als Gameplay-Basis</div>
+        <div class="check">2010–2013 nur selektiv</div>
+        <div class="check">Alchemy vorerst deferred</div>
+        <div class="check">Stabilität vor Featurezahl</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="section news" id="news"><div class="heading reveal"><div class="kicker">AUS DER ENTWICKLUNG</div><h2>Devlog & <span>News</span></h2></div><div class="news-grid"><article class="news-card reveal"><div class="news-art"></div><div class="news-body"><time>SEPTEMBER 2026</time><h3>Die historische Basis steht.</h3><p>Von 2009 bis 2013 wurde die Contententwicklung dokumentiert. Jetzt entsteht die Mera2-Zielprogression.</p></div></article><article class="news-card reveal"><div class="news-art"></div><div class="news-body"><time>COMMUNITY</time><h3>Du entscheidest mit.</h3><p>Biologe, Maps, Systeme und Endgame: Sag uns, worauf du wirklich Bock hast.</p></div></article><article class="news-card reveal"><div class="news-art"></div><div class="news-body"><time>TECH</time><h3>Stabilität vor Features.</h3><p>Build, Logging, Datenintegrität und defensive Robustheit wurden zuerst geprüft.</p></div></article></div></section>
+<section class="parallax">
+  <div class="inner reveal">
+    <div class="crest"><span>M</span></div>
+    <div class="kicker">A WORLD BUILT TO MATTER</div>
+    <h2>Drei Epochen.<br>Eine klare Identität.</h2>
+    <p>Die Frage ist nicht: „Was können wir alles einbauen?“ Sondern: „Was verdient einen Platz in Mera2?“ Genau deshalb stimmt die Community mit ab.</p>
+    <div class="actions" style="justify-content:center"><a class="btn gold" href="./survey.html">Deine Stimme abgeben</a></div>
+  </div>
+</section>
 
-<section class="roadmap" id="roadmap"><div class="heading reveal"><div class="kicker">ROADMAP</div><h2>Erst das Fundament.<br><span>Dann die Welt.</span></h2></div><div class="steps reveal"><div class="step"><span>01</span><b>Technische Baseline</b><small>Build · Runtime · Security · Logging</small></div><div class="step active"><span>02</span><b>Gameplay-Design</b><small>Level 1–99 · Maps · Equipment</small></div><div class="step"><span>03</span><b>Economy & Drops</b><small>Faucets · Sinks · Materialien</small></div><div class="step"><span>04</span><b>Systems</b><small>Wiki · Offline Shop · QoL</small></div><div class="step"><span>05</span><b>Alpha</b><small>Balance · Tests · Community</small></div></div></section>
+<section class="section classes" id="classes">
+  <div class="classes-head">
+    <div><div class="kicker">FOUR CLASSES · EIGHT PATHS</div><h2 class="title">Kein Buffchar.<br><em>Kein Farmchar.</em></h2></div>
+    <div class="class-tabs">
+      <button class="class-tab active" data-c="warrior">Krieger</button>
+      <button class="class-tab" data-c="ninja">Ninja</button>
+      <button class="class-tab" data-c="sura">Sura</button>
+      <button class="class-tab" data-c="shaman">Schamane</button>
+    </div>
+  </div>
+  <div class="class-stage reveal">
+    <div class="class-art" id="classArt"></div>
+    <div class="class-copy" id="classCopy" data-letter="W">
+      <small id="classRole">BODY · MENTAL</small>
+      <h3 id="classTitle">Warrior</h3>
+      <p id="classText">Direkt, standfest, druckvoll. Beide Wege sollen eigenständig leveln, farmen, Bosse spielen und im PvP bestehen können.</p>
+      <div class="class-metrics">
+        <div class="metric"><b>Full Main</b><span>Identity</span></div>
+        <div class="metric"><b>PvM / PvP</b><span>Separate tuning</span></div>
+        <div class="metric"><b>±10–15%</b><span>Target spread</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<section class="cta"><div class="cta-box reveal"><div><div class="kicker">COMMUNITY COUNCIL</div><h2>Wie soll sich <span style="color:#c99959">Mera2</span> anfühlen?</h2><p>2009 oder 2013? Originaler Biologe oder QoL? Alchemie, Endgame, Equipment und mehr — deine Meinung fließt in die Designentscheidungen ein.</p></div><a class="btn btn-primary" href="./survey.html">Umfrage starten ›</a></div></section>
+<section class="section news-section" id="news">
+  <div class="section-head">
+    <div><div class="kicker">DEVELOPMENT JOURNAL</div><h2 class="title">Aus dem <em>Devlog.</em></h2></div>
+    <a class="btn" href="#roadmap">Roadmap ansehen</a>
+  </div>
+  <div class="news-grid">
+    <article class="news-feature reveal"><div class="copy"><div class="news-tag">WORLD DESIGN · SEPT 2026</div><h3>Von 2009 bis 2013 — ohne den Oldschool-Kern zu verlieren.</h3><p>Historische Inhalte wurden getrennt ausgewertet. Jetzt wird daraus eine kompakte Level-1-bis-99-Progression.</p></div></article>
+    <div class="news-stack">
+      <article class="news-card reveal delay1"><time>TECHNICAL BASELINE</time><h4>Stabilität zuerst.</h4><p>Build, Logging, Datenintegrität und defensive Robustheit wurden vor der eigentlichen Featurearbeit geprüft.</p></article>
+      <article class="news-card reveal delay2"><time>COMMUNITY COUNCIL</time><h4>Du entscheidest mit.</h4><p>Biologe, Endgame, Alchemie, Progression und Systeme werden nicht im stillen Kämmerlein festgelegt.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap" id="roadmap">
+  <div class="roadmap-inner">
+    <div class="kicker">MERA2 // ROADMAP</div>
+    <h2 class="title">Von der Basis<br><em>zum lebendigen Server.</em></h2>
+    <div class="roadline reveal">
+      <div class="roadstep"><div class="dot"><span>01</span></div><b>Baseline</b><small>Build · Runtime · Security · Logging</small></div>
+      <div class="roadstep active"><div class="dot"><span>02</span></div><b>World Design</b><small>Level 1–99 · Maps · Equipment</small></div>
+      <div class="roadstep"><div class="dot"><span>03</span></div><b>Economy</b><small>Drops · Yang · Materials · Refine</small></div>
+      <div class="roadstep"><div class="dot"><span>04</span></div><b>Systems</b><small>Wiki · Shops · Guild · Events</small></div>
+      <div class="roadstep"><div class="dot"><span>05</span></div><b>Alpha</b><small>Balance · Tests · Community</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-inner reveal">
+    <div><div class="kicker">COMMUNITY COUNCIL</div><h2>Wie soll sich<br><em style="font-style:normal;color:#e2bd7d">Mera2</em> anfühlen?</h2><p>2009 oder 2013? Originaler Biologe oder moderne QoL? Welche Endgame-Maps sollen bleiben? Stimme ab, bevor wir die Gameplaywerte festziehen.</p></div>
+    <a class="btn gold" href="./survey.html">Umfrage starten</a>
+  </div>
+</section>
 </main>
-<footer><div>MERA2 · Community-first MMORPG project</div><div>In development · 2026</div></footer>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><strong>MERA<span>2</span></strong><p>Ein Community-first MMORPG-Projekt mit klassischem Kern, moderner Technik und bewusst kuratiertem Endgame.</p></div>
+    <div class="footer-col"><b>Projekt</b><a href="#world">Vision</a><a href="#classes">Klassen</a><a href="#roadmap">Roadmap</a></div>
+    <div class="footer-col"><b>Community</b><a href="./survey.html">Umfrage</a><a href="#news">Devlog</a><a href="#">Discord — bald</a></div>
+  </div>
+  <div class="copyright"><span>Mera2 · In Development · 2026</span><span>Independent community project</span></div>
+</footer>
+
 <script>
-const bar=document.getElementById('topbar');addEventListener('scroll',()=>bar.classList.toggle('scrolled',scrollY>25));
-const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu.onclick=()=>nav.classList.toggle('open');
-const reveal=[...document.querySelectorAll('.reveal')];const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});reveal.forEach(x=>io.observe(x));
-const data={warrior:['⚔','KRIEGER','Kraft trifft Ausdauer.','Body und Mental sollen gleichermaßen leveln, Metins farmen, Bosse spielen und im PvP bestehen können.'],ninja:['✦','NINJA','Tempo, Präzision, Reichweite.','Dagger und Archer erhalten eine vollwertige PvM-Rolle, ohne ihre Identität im PvP zu verlieren.'],sura:['◇','SURA','Magie als Waffe.','Weapon und Black Magic werden getrennt für PvM und PvP betrachtet, damit beide echte Main-Charaktere bleiben.'],shaman:['☯','SCHAMANE','Support ohne Abhängigkeit.','Dragon und Heal sollen eigenständig wirtschaften und Content spielen können — nicht nur als Buffcharakter.']};
-document.querySelectorAll('.class-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.class-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=data[b.dataset.c];emblem.textContent=d[0];role.textContent=d[1];ctitle.textContent=d[2];ctext.textContent=d[3]});
+const menu=document.getElementById('menu'), left=document.getElementById('navLeft'), right=document.getElementById('navRight');
+menu.addEventListener('click',()=>{left.classList.toggle('open');right.classList.toggle('open')});
+
+const reveals=[...document.querySelectorAll('.reveal')];
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});
+reveals.forEach(x=>io.observe(x));
+
+const heroBg=document.getElementById('heroBg');
+addEventListener('scroll',()=>{if(innerWidth>800)heroBg.style.transform='scale(1.06) translateY('+(scrollY*.07)+'px)'},{passive:true});
+
+const classData={
+ warrior:{letter:'W',role:'BODY · MENTAL',title:'Warrior',text:'Direkt, standfest, druckvoll. Beide Wege sollen eigenständig leveln, farmen, Bosse spielen und im PvP bestehen können.',pos:'center 38%'},
+ ninja:{letter:'N',role:'DAGGER · ARCHER',title:'Ninja',text:'Tempo, Reichweite und Präzision. Archer und Dagger sollen im PvM vollwertig sein, ohne ihre PvP-Identität zu verlieren.',pos:'62% 34%'},
+ sura:{letter:'S',role:'WEAPON · BLACK MAGIC',title:'Sura',text:'Magie als Waffe. PvM- und PvP-Modifikatoren werden getrennt gedacht, damit beide Wege wirtschaftlich funktionieren.',pos:'42% 40%'},
+ shaman:{letter:'H',role:'DRAGON · HEAL',title:'Shaman',text:'Support ohne Abhängigkeit. Dragon und Heal sollen als echte Main-Charaktere leveln, farmen und Endgame spielen können.',pos:'75% 36%'}
+};
+document.querySelectorAll('.class-tab').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.class-tab').forEach(x=>x.classList.remove('active'));btn.classList.add('active');
+ const d=classData[btn.dataset.c];
+ document.getElementById('classCopy').dataset.letter=d.letter;
+ document.getElementById('classRole').textContent=d.role;
+ document.getElementById('classTitle').textContent=d.title;
+ document.getElementById('classText').textContent=d.text;
+ document.getElementById('classArt').style.backgroundPosition=d.pos;
+}));
+
+const c=document.getElementById('embers'),ctx=c.getContext('2d');let pts=[];
+function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);pts=Array.from({length:Math.min(55,Math.floor(innerWidth/22))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:.4+Math.random()*1.2,v:.08+Math.random()*.24,a:.1+Math.random()*.42}))}
+function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const p of pts){p.y-=p.v;p.x+=Math.sin(p.y*.01)*.08;if(p.y<-10){p.y=innerHeight+10;p.x=Math.random()*innerWidth}ctx.beginPath();ctx.fillStyle='rgba(224,151,69,'+p.a+')';ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();draw();
 </script>
-</body></html>
+</body>
+</html>
